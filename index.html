@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Digi Baba Academy | No Student Left Behind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Digi Baba Academy – a student-first online academy for career guidance, competitions, industry connect and mental well-being support for Gen-Z and upcoming learners."
+  />
+
+  <!-- Gen-Z Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* =========================
+       BASIC RESET & THEME
+       ========================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #020617;
+      --bg-soft: #050816;
+      --card: #070f2a;
+      --card-soft: #0b1220;
+      --primary: #a855f7;
+      --primary-soft: rgba(168, 85, 247, 0.18);
+      --primary-strong: #c4b5fd;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.16);
+      --warn: #f97316;
+      --danger: #fb7185;
+      --text-main: #f9fafb;
+      --text-muted: #a1a1aa;
+      --border-subtle: rgba(148, 163, 184, 0.4);
+      --radius-xl: 1.5rem;
+      --radius-lg: 1rem;
+      --radius-md: 0.9rem;
+      --radius-pill: 999px;
+      --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.9);
+      --nav-height: 70px;
+      --max-width: 1120px;
+    }
+
+    html,
+    body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 42%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: var(--nav-height);
+      /* Anti-select / anti-copy baseline */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       LAYOUT HELPERS
+       ========================= */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    section {
+      padding: 4.5rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 2.4rem;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 2.2vw + 1rem, 2.3rem);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 34rem;
+    }
+
+    /* =========================
+       BACKGROUND EFFECT
+       ========================= */
+    .bg-orbit {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.65;
+      mix-blend-mode: screen;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(244, 63, 94, 0.18), transparent 50%),
+        radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.22), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(129, 140, 248, 0.25), transparent 50%);
+    }
+
+    /* =========================
+       NAVBAR
+       ========================= */
+    .navbar {
+      position: fixed;
+      z-index: 40;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(3, 7, 18, 0.98),
+        rgba(3, 7, 18, 0.88),
+        transparent
+      );
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-inner {
+      height: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 40%;
+      background: conic-gradient(
+        from 210deg,
+        #22c55e,
+        #a855f7,
+        #38bdf8,
+        #f97316,
+        #22c55e
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(248, 250, 252, 0.45);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .brand-text-main {
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text-sub {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      position: relative;
+      padding-block: 0.1rem;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, var(--accent), var(--primary));
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition:
+        background 0.18s ease-out,
+        transform 0.14s ease-out,
+        box-shadow 0.18s ease-out,
+        border-color 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #0b1120;
+      border-color: rgba(129, 140, 248, 0.7);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 60px rgba(88, 28, 135, 0.7);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.98);
+      border-color: rgba(248, 250, 252, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .btn-icon {
+      font-size: 1rem;
+      margin-left: 0.3rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 0.35rem 0.6rem;
+      background: rgba(15, 23, 42, 0.9);
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      display: block;
+      position: relative;
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: #e5e7eb;
+    }
+
+    .nav-toggle span::before {
+      top: -5px;
+    }
+
+    .nav-toggle span::after {
+      top: 5px;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+    #home {
+      padding-top: 3.5rem;
+      padding-bottom: 4.2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-pill span.badge {
+      padding: 0.05rem 0.55rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 3vw + 1.4rem, 3.1rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #34d399, #a855f7, #38bdf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 33rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta strong {
+      color: var(--primary-strong);
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.4rem 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background:
+        radial-gradient(circle at top left, rgba(248, 250, 252, 0.16), transparent 55%),
+        rgba(15, 23, 42, 0.96);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 10% 0, rgba(168, 85, 247, 0.32), transparent 45%),
+        radial-gradient(circle at 80% 100%, rgba(56, 189, 248, 0.3), transparent 50%);
+      opacity: 0.55;
+      mix-blend-mode: screen;
+      z-index: -1;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .chip {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.72rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+
+    .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-founder {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .hero-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      padding: 2px;
+      background: conic-gradient(
+        from 160deg,
+        #22c55e,
+        #38bdf8,
+        #a855f7,
+        #f97316,
+        #22c55e
+      );
+    }
+
+    .hero-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .hero-pill-soft {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      font-size: 0.72rem;
+    }
+
+    /* =========================
+       ABOUT + TRACKS
+       ========================= */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.4rem;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .about-text p + p {
+      margin-top: 0.65rem;
+    }
+
+    .about-highlight {
+      margin-top: 0.9rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(34, 197, 94, 0.6);
+      background: rgba(21, 128, 61, 0.18);
+      color: #bbf7d0;
+      font-size: 0.8rem;
+    }
+
+    .pill-row {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .pill {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.3rem 0.75rem;
+      font-size: 0.78rem;
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: var(--card);
+      padding: 0.9rem 1rem;
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.9);
+      font-size: 0.85rem;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .card small {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .card p {
+      margin-top: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    /* =========================
+       FEATURES (STUDENTS / COMPANIES / MENTAL HEALTH)
+       ========================= */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: var(--card-soft);
+      padding: 0.9rem 1rem;
+      font-size: 0.83rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .feature-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-title {
+      font-size: 0.92rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-card ul {
+      margin-left: 1rem;
+      margin-top: 0.25rem;
+      color: var(--text-muted);
+    }
+
+    .feature-card li + li {
+      margin-top: 0.18rem;
+    }
+
+    .feature-tag {
+      display: inline-flex;
+      margin-top: 0.5rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .subtle-note {
+      margin-top: 0.7rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* =========================
+       FOUNDER & ROADMAP
+       ========================= */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 2.3rem;
+      align-items: flex-start;
+    }
+
+    .metric-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.9rem;
+    }
+
+    .metric {
+      min-width: 120px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: var(--card-soft);
+      padding: 0.6rem 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.1rem;
+    }
+
+    .metric span {
+      color: var(--text-muted);
+    }
+
+    .founder-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(248, 250, 252, 0.18);
+      background:
+        radial-gradient(circle at top left, rgba(129, 140, 248, 0.35), transparent 55%),
+        rgba(15, 23, 42, 0.96);
+      padding: 1rem 1.05rem 1.15rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.85rem;
+    }
+
+    .founder-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .founder-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .founder-tagline {
+      font-size: 0.78rem;
+      color: #c4b5fd;
+    }
+
+    .badge-soft {
+      border-radius: var(--radius-pill);
+      padding: 0.2rem 0.6rem;
+      font-size: 0.7rem;
+      border: 1px solid rgba(165, 180, 252, 0.8);
+      background: rgba(79, 70, 229, 0.22);
+    }
+
+    .founder-story p {
+      color: #e5e7eb;
+      margin-bottom: 0.4rem;
+    }
+
+    .founder-story p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =========================
+       COMPETITIONS
+       ========================= */
+    .tag-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .tag {
+      border-radius: var(--radius-pill);
+      padding: 0.2rem 0.65rem;
+      background: rgba(30, 64, 175, 0.5);
+      border: 1px solid rgba(129, 140, 248, 0.7);
+    }
+
+    /* =========================
+       CONTACT
+       ========================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 2.3rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.55rem;
+      font-size: 0.85rem;
+    }
+
+    label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.55rem 0.65rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.16s ease-out, box-shadow 0.16s ease-out;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: rgba(129, 140, 248, 0.9);
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: var(--card);
+      padding: 1rem 1rem 1.1rem;
+      font-size: 0.84rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-row {
+      margin-top: 0.4rem;
+    }
+
+    .contact-row strong {
+      min-width: 70px;
+      display: inline-block;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      padding: 1.6rem 0 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* =========================
+       REVEAL ANIMATION
+       ========================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+    @media (max-width: 960px) {
+      .hero-grid,
+      .two-col,
+      .impact-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .navbar.nav-open .nav-inner {
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+
+      .navbar.nav-open .nav-links,
+      .navbar.nav-open .nav-cta {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+
+      .navbar.nav-open .nav-links {
+        justify-content: flex-start;
+        gap: 0.8rem;
+      }
+
+      .navbar.nav-open .nav-cta {
+        justify-content: flex-start;
+        gap: 0.6rem;
+        margin-bottom: 0.7rem;
+      }
+
+      section {
+        padding: 3.2rem 0;
+      }
+
+      #home {
+        padding-top: 2.4rem;
+      }
+
+      .feature-grid,
+      .card-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.88rem;
+      }
+    }
+  </style>
+</head>
+<body ondragstart="return false" onselectstart="return false">
+  <div class="bg-orbit"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="brand">
+        <div class="brand-mark">DB</div>
+        <div>
+          <div class="brand-text-main">Digi Baba Academy</div>
+          <div class="brand-text-sub">No Student Left Behind</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#tracks">Skill Tracks</a>
+        <a class="nav-link" href="#students">Students</a>
+        <a class="nav-link" href="#companies">Companies</a>
+        <a class="nav-link" href="#mindcare">Mind Care</a>
+        <a class="nav-link" href="#founder">Founder</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#students" class="btn btn-ghost">I’m a Student</a>
+        <a href="#companies" class="btn btn-primary">
+          I’m a Company
+          <span class="btn-icon">↗</span>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="hero-pill">
+            <span class="badge">Gen-Z & Upcoming Kids</span>
+            Free career guidance · Competitions · Industry connect
+          </div>
+          <h1 class="hero-title">
+            Helping students who feel <span class="highlight">left behind</span>
+            move forward again.
+          </h1>
+          <p class="hero-subtitle">
+            Digi Baba Academy is an online, student-first space for school & college
+            students, dropouts and working learners. We guide you in
+            <strong>Automobile</strong>, <strong>EV</strong>,
+            <strong>Roto Drones</strong> and <strong>BESS</strong> – with free
+            career clarity, competitions, internships and gentle support for exam
+            stress and low confidence.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#students" class="btn btn-primary">
+              Start as a learner <span class="btn-icon">🎓</span>
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+              Talk to Digi Baba <span class="btn-icon">💬</span>
+            </a>
+          </div>
+          <div class="hero-meta">
+            <div><strong>0 ₹ compulsory fees</strong> · Support is voluntary</div>
+            <div>Pure guidance · No marks-shaming · Pan-India students welcome</div>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal">
+          <div class="hero-tags">
+            <div class="chip">
+              <span class="chip-dot"></span>
+              Free career guidance calls
+            </div>
+            <div class="chip">
+              <span class="chip-dot"></span>
+              Online hackathons & quizzes
+            </div>
+            <div class="chip">
+              <span class="chip-dot"></span>
+              Internship pathways in EV & drones
+            </div>
+            <div class="chip">
+              <span class="chip-dot"></span>
+              Gentle support for low mood & exam stress
+            </div>
+          </div>
+          <div class="hero-card-footer">
+            <div class="hero-founder">
+              <div class="hero-avatar">
+                <div class="hero-avatar-inner">DB</div>
+              </div>
+              <div>
+                <div>Built by a teacher who was once “behind”.</div>
+                <small>
+                  From falling back in school to completing degrees and returning as
+                  a teacher – now guiding others not to give up.
+                </small>
+              </div>
+            </div>
+            <div class="hero-pill-soft">
+              Online-first · Students from across India 🌏
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT + TRACKS -->
+    <section id="about">
+      <div class="container two-col">
+        <div class="about-text reveal">
+          <div class="section-header">
+            <div class="eyebrow">About Digi Baba Academy</div>
+            <h2 class="section-title">A safe, practical hub for confused learners.</h2>
+            <p class="section-subtitle">
+              Not a marks-obsessed tuition center. Not a pressure factory. We
+              exist so that students who feel “late”, “lost” or “stuck” don’t give
+              up on their journey.
+            </p>
+          </div>
+          <p>
+            Digi Baba Academy is built on real experience of struggle. Our
+            founder was once a class topper who suddenly had to break from
+            schooling due to health issues. When studies resumed later, the
+            syllabus and classmates had moved far ahead – creating fear, shame and
+            deep confusion.
+          </p>
+          <p>
+            Instead of quitting life, a different route was taken – through open
+            learning paths, bridge programmes and distance education – eventually
+            completing graduation in Sociology, a Master’s degree and entering the
+            teaching field. That long journey turned into one simple promise:
+          </p>
+          <div class="about-highlight">
+            <strong>“No student should feel permanently ‘finished’ just because they
+            fell back once.”</strong> Digi Baba Academy is a friendly online
+            companion for such students – explaining options, planning next
+            steps and connecting them to real industry mentors.
+          </div>
+          <div class="pill-row">
+            <div class="pill">Online sessions · Pan-India access</div>
+            <div class="pill">Student-friendly language (no heavy jargon)</div>
+            <div class="pill">Service mindset · Not profit-driven</div>
+          </div>
+        </div>
+
+        <aside id="tracks" class="reveal">
+          <div class="section-header">
+            <div class="eyebrow">Skill tracks we focus on</div>
+            <h2 class="section-title">Practical domains for the next decade.</h2>
+            <p class="section-subtitle">
+              We guide you into hands-on, growing fields where skills matter more
+              than marks alone.
+            </p>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <small>Track</small>
+              <h3>Automobile & Mobility</h3>
+              <p>
+                Core automobile fundamentals, 2W & 3W basics, wiring harness concepts,
+                simple diagnostics, and future of mobility for young learners.
+              </p>
+            </article>
+            <article class="card">
+              <small>Track</small>
+              <h3>Electric Vehicles & BESS</h3>
+              <p>
+                EV architecture, battery packs, safety, charging basics and
+                stationary Battery Energy Storage Systems explained in student
+                language.
+              </p>
+            </article>
+            <article class="card">
+              <small>Track</small>
+              <h3>Roto Drones</h3>
+              <p>
+                Intro to drones, applications, safety, regulations, and how to
+                build a profile towards drone-related roles and internships.
+              </p>
+            </article>
+            <article class="card">
+              <small>Plus</small>
+              <h3>Cross-domain skills</h3>
+              <p>
+                Communication, presentation, project report basics, resume-building
+                and interview readiness tailored to these industries.
+              </p>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- STUDENTS -->
+    <section id="students">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">For students & working learners</div>
+          <h2 class="section-title">What Digi Baba Academy does for you.</h2>
+          <p class="section-subtitle">
+            Whether you’re in school, college, ITI, diploma, degree or already
+            working – we help you understand where you stand and where you can go.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-label">01 · Career clarity</div>
+            <h3 class="feature-title">Simple, honest guidance sessions</h3>
+            <p>
+              We listen to your story without judging. Based on your current
+              situation, we explain possible paths – from open universities to
+              technical roles in EV, auto or drones.
+            </p>
+            <ul>
+              <li>1:1 guidance slots (limited)</li>
+              <li>Group doubt-clearing sessions</li>
+              <li>Special focus on “late” or discontinued learners</li>
+            </ul>
+            <div class="feature-tag">Languages: English · Hindi</div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-label">02 · Exposure</div>
+            <h3 class="feature-title">Online competitions & mini projects</h3>
+            <p>
+              Quizzes, idea challenges, case studies and project showcases in our
+              focused domains – helping you build confidence and a portfolio.
+            </p>
+            <ul>
+              <li>Concept quizzes in EV, auto & drones</li>
+              <li>Mini-project reviews & feedback</li>
+              <li>E-certificates and recognition</li>
+            </ul>
+            <div class="feature-tag">Good for resumes & LinkedIn</div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-label">03 · Support</div>
+            <h3 class="feature-title">Gentle support for stress & low mood</h3>
+            <p>
+              We know how it feels to be called “backbencher” or “failure”.
+              Through calm conversations and simple plans, we help you restart
+              without self-hate.
+            </p>
+            <ul>
+              <li>Normalising backlog & gap years</li>
+              <li>Basic routine, study and planning tips</li>
+              <li>Referral to professional help when required</li>
+            </ul>
+            <div class="feature-tag">We are a support space, not a clinic</div>
+          </article>
+        </div>
+
+        <p class="subtle-note reveal">
+          <strong>Note:</strong> Digi Baba Academy does not force fees. You can
+          support based on your capacity. Financial limits should never stop you
+          from receiving guidance.
+        </p>
+      </div>
+    </section>
+
+    <!-- COMPANIES -->
+    <section id="companies">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">For companies & CSR partners</div>
+          <h2 class="section-title">A curated talent bridge for your requirements.</h2>
+          <p class="section-subtitle">
+            We work with companies who need motivated candidates in Automobile,
+            EV, Drones and BESS. We filter and prepare students at no cost to
+            them, and your CSR or training budgets can support our mission.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-label">A · Hiring support</div>
+            <h3 class="feature-title">Pre-aligned, upskilling-focused candidates</h3>
+            <p>
+              We engage students who are genuinely interested in your domain and
+              expose them to basics before they reach you – reducing noise in
+              hiring.
+            </p>
+            <ul>
+              <li>Initial technical screening</li>
+              <li>Soft-skill & attitude orientation</li>
+              <li>Custom short-term training themes possible</li>
+            </ul>
+            <div class="feature-tag">No hiring fee charged to students</div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-label">B · CSR synergy</div>
+            <h3 class="feature-title">Meaningful education & skilling projects</h3>
+            <p>
+              Your CSR can help fund our free guidance, online competitions,
+              devices, internet support or learning content for students who
+              otherwise can’t access such support.
+            </p>
+            <ul>
+              <li>Clear utilisation plans</li>
+              <li>Impact tracking & student stories</li>
+              <li>Co-branded events & competitions</li>
+            </ul>
+            <div class="feature-tag">Education · Skill development · Livelihood</div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-label">C · Micro-engagements</div>
+            <h3 class="feature-title">Talks, micro-internships & challenges</h3>
+            <p>
+              Involve your team as mentors or jury members – giving them a chance
+              to shape future talent, while students get practical exposure.
+            </p>
+            <ul>
+              <li>Guest sessions & Ask-Me-Anything (AMA)</li>
+              <li>Short virtual internships or problem statements</li>
+              <li>Sponsorship of themed competitions</li>
+            </ul>
+            <div class="feature-tag">Low effort · High impact</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MIND CARE / MENTAL HEALTH -->
+    <section id="mindcare">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Mind care for learners</div>
+          <h2 class="section-title">Because marks are not your full story.</h2>
+          <p class="section-subtitle">
+            Many students quietly carry fear, shame and overthinking due to
+            comparisons, failures or breaks in education. We try to be that one
+            calm voice that says: “You still have a future.”
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-label">01 · Listen</div>
+            <h3 class="feature-title">Safe listening space</h3>
+            <p>
+              Sometimes, students just need to speak openly about what happened –
+              health issues, family pressure, financial struggles, bullying,
+              anything.
+            </p>
+            <ul>
+              <li>Non-judgemental listening</li>
+              <li>Normalising second chances</li>
+              <li>Encouraging self-respect and patience</li>
+            </ul>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-label">02 · Plan</div>
+            <h3 class="feature-title">Small, realistic action plans</h3>
+            <p>
+              Together, we break down your situation into small steps – what can
+              be done this week, this month, this year – instead of getting stuck
+              in “I already lost everything”.
+            </p>
+            <ul>
+              <li>Simple scheduling and routines</li>
+              <li>Focus on next exam / skill / milestone</li>
+              <li>Progress review with kindness</li>
+            </ul>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-label">03 · Refer</div>
+            <h3 class="feature-title">Professional help when needed</h3>
+            <p>
+              We are not a medical or therapy service. If we sense deeper issues,
+              we encourage consulting a qualified professional and share basic
+              guidance on how to approach them.
+            </p>
+            <ul>
+              <li>Encouraging asking for help</li>
+              <li>Basic awareness about mental health</li>
+              <li>Respecting privacy and dignity</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER / ROADMAP / COMPETITIONS -->
+    <section id="founder">
+      <div class="container impact-grid">
+        <div class="reveal">
+          <div class="section-header">
+            <div class="eyebrow">Roadmap</div>
+            <h2 class="section-title">Growing slowly, staying honest.</h2>
+            <p class="section-subtitle">
+              Digi Baba Academy is in its early build-up phase – we prefer
+              growing with integrity and personal attention rather than rushing.
+            </p>
+          </div>
+          <p style="font-size:0.9rem;color:var(--text-muted);">
+            Our initial focus is on building a strong online base of students,
+            running regular competitions, recording success stories and creating
+            stable partnerships with open-minded companies in the EV, Auto,
+            Drone and BESS ecosystem. As support grows, we plan to build a
+            dedicated digital campus and collaborations for more structured
+            programmes.
+          </p>
+          <div class="metric-row">
+            <div class="metric">
+              <strong>Phase 1</strong>
+              <span>Online sessions & pilot batches</span>
+            </div>
+            <div class="metric">
+              <strong>Phase 2</strong>
+              <span>Structured tracks & CSR tie-ups</span>
+            </div>
+            <div class="metric">
+              <strong>Phase 3</strong>
+              <span>Dedicated digital campus & labs</span>
+            </div>
+          </div>
+
+          <div style="margin-top:1.3rem;">
+            <div class="eyebrow">Online competitions</div>
+            <h3 style="font-size:1rem;margin-bottom:0.3rem;">
+              Hackathons, quizzes & project showcases.
+            </h3>
+            <p style="font-size:0.85rem;color:var(--text-muted);">
+              We regularly plan online activities where students can prove their
+              interest and skills, even if their marks are average or their
+              journey is non-traditional.
+            </p>
+            <div class="tag-strip">
+              <div class="tag">EV basics quiz</div>
+              <div class="tag">Auto wiring challenges</div>
+              <div class="tag">Drone concept case studies</div>
+              <div class="tag">BESS scenario solutions</div>
+              <div class="tag">Soft-skill challenges</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="founder-card reveal">
+          <div class="founder-heading">
+            <div>
+              <div class="founder-name">Founder: Digi Baba</div>
+              <div class="founder-tagline">Teacher · Lifelong learner · Student ally</div>
+            </div>
+            <span class="badge-soft">From setback to service</span>
+          </div>
+          <div class="founder-story">
+            <p>
+              “In school, I was known as a bright student until life suddenly
+              changed. Health issues forced a break from studies. When I tried to
+              return, the syllabus and classmates had moved far ahead. That gap
+              hurt more than marks – it hit my confidence and identity.”
+            </p>
+            <p>
+              “For a long time, entering a classroom felt scary. Slowly, through
+              alternative routes like bridge programmes and open learning, I
+              restarted, completed degrees and became a teacher. That journey
+              taught me something powerful: <strong>falling behind once does not
+              mean you are permanently finished.</strong>”
+            </p>
+            <p>
+              “Digi Baba Academy is my promise to the next generation – that they
+              will always find at least one place on the internet where someone
+              understands this pain and helps them move forward without
+              judgement.”
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <div class="section-header">
+            <div class="eyebrow">Connect with Digi Baba Academy</div>
+            <h2 class="section-title">Tell us where you are stuck.</h2>
+            <p class="section-subtitle">
+              Use this form if you are a student, parent, working learner or
+              company. We respond as early as possible, based on availability.
+            </p>
+          </div>
+          <!-- NOTE: Replace email below with your real email -->
+          <form
+            id="contactForm"
+            action="mailto:your-email@digibabaacademy.in"
+            method="post"
+            enctype="text/plain"
+          >
+            <div>
+              <label for="name">Full name</label>
+              <input id="name" name="Name" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="Email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div>
+              <label for="role">I am a…</label>
+              <select id="role" name="Role">
+                <option value="student">Student</option>
+                <option value="working">Working professional</option>
+                <option value="parent">Parent / Guardian</option>
+                <option value="company">Company / CSR representative</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="message">Share your situation / requirement</label>
+              <textarea
+                id="message"
+                name="Message"
+                placeholder="Example: I had to stop in 10th / I am confused between EV and ITI / We are a company looking for candidates…"
+                required
+              ></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">
+                Send message
+                <span class="btn-icon">✉️</span>
+              </button>
+            </div>
+            <p class="form-note">
+              By submitting, you agree to be contacted by Digi Baba Academy using the
+              details you provide. We respect your privacy and will not misuse your
+              information.
+            </p>
+          </form>
+        </div>
+
+        <aside class="contact-card reveal">
+          <h3>Contact details</h3>
+          <p style="color:var(--text-muted);">
+            Replace these sample details with your real contact information, then
+            commit the updated file.
+          </p>
+          <div class="contact-row">
+            <strong>Email</strong>
+            <span>your-email@digibabaacademy.in</span>
+          </div>
+          <div class="contact-row">
+            <strong>WhatsApp</strong>
+            <span>+91-XXXXXXXXXX</span>
+          </div>
+          <div class="contact-row">
+            <strong>Mode</strong>
+            <span>Online calls · Messages · Occasional offline meets (where feasible)</span>
+          </div>
+          <div class="contact-row">
+            <strong>Focus</strong>
+            <span>Automobile · EV · Roto Drones · BESS · Career clarity</span>
+          </div>
+          <p class="form-note" style="margin-top:0.7rem;">
+            For companies: please mention “Partnership / CSR” and your organisation
+            details in the message so we can respond with the right context.
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>
+        © Digi Baba Academy. A student-first, service-driven initiative for Gen-Z and
+        upcoming learners.
+      </span>
+      <div class="footer-links">
+        <a href="#home">Top ↑</a>
+        <a href="#students">Students</a>
+        <a href="#companies">Companies</a>
+        <a href="#mindcare">Mind care</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================
+       PROTECTION & INTERACTION JS
+       ========================= -->
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navbar = document.getElementById("navbar");
+
+    navToggle?.addEventListener("click", () => {
+      navbar.classList.toggle("nav-open");
+    });
+
+    // Smooth scroll + close mobile menu
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (e) => {
+        const targetId = anchor.getAttribute("href").substring(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const offset = targetEl.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: offset, behavior: "smooth" });
+          navbar.classList.remove("nav-open");
+        }
+      });
+    });
+
+    // Reveal animation
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    // =========================
+    // ANTI-COPY / ANTI-INSPECT (basic)
+    // =========================
+
+    // Block right-click
+    document.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+    });
+
+    // Block key combos for inspect / view source / save / copy
+    document.addEventListener("keydown", function (e) {
+      // F12
+      if (e.keyCode === 123) {
+        e.preventDefault();
+        return false;
+      }
+      // Ctrl+Shift+I / J / C
+      if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
+        e.preventDefault();
+        return false;
+      }
+      // Ctrl+U (view source) / Ctrl+S (save) / Ctrl+C (copy)
+      if (
+        e.ctrlKey &&
+        (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 67)
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Block copy / cut / paste
+    ["copy", "cut", "paste"].forEach((evt) => {
+      document.addEventListener(evt, function (e) {
+        e.preventDefault();
+      });
+    });
+
+    // Extra: small anti-devtools trick (not bulletproof)
+    (function () {
+      let open = false;
+      const threshold = 160;
+      const check = function () {
+        if (
+          window.outerWidth - window.innerWidth > threshold ||
+          window.outerHeight - window.innerHeight > threshold
+        ) {
+          if (!open) {
+            open = true;
+            alert("Developer tools are open. For safety, content access may be limited.");
+          }
+        } else {
+          open = false;
+        }
+      };
+      setInterval(check, 1000);
+    })();
+  </script>
+</body>
+</html>
